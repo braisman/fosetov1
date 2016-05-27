@@ -1,0 +1,44 @@
+<section>
+  <!--Parte de la orden-->
+  <div class="jumbotron col-md-6 col-md-offset-3" style="margin-top: 10px">
+    <h1 class="text-center">Orden</h1>
+    <div class="panel panel-success">
+      <div class="panel-body">
+        <h3>Ingredientes</h3>
+      </div>
+      <div class="panel-footer">
+        <div class="list-group-item" data-ng-repeat="topping in vm.suborder.toppings">
+          <h4 data-ng-bind="topping.ingredient.name"></h4>
+          <h5>Cantidad <small data-ng-bind="topping.quantity"></small></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--barra de progreso-->
+  <uib-progress class="col-md-6 col-md-offset-3">
+    <uib-bar value="100" type="success">100</uib-bar>
+  </uib-progress>
+  <!--ingrediente actual-->
+  <div class="col-md-6 col-md-offset-3" style="background-color: #C0C0C0; padding: 5px; border-radius: 3px; margin-bottom: 10px">
+    <!--titulo-->
+    <h3 class="text-center">Ingrediente a dispensar</h3>
+    <!--ingrediente -->
+    <div class="panel panel-success">
+      <div class="panel-body">
+        <h4>Ingrediente</h4>
+      </div>
+      <div class="panel-footer">
+        <p>ingrediente</p>
+      </div>
+    </div>
+    <!--cantidad -->
+    <div class="panel panel-success">
+      <div class="panel-body">
+        <h4>Cantidad</h4>
+      </div>
+      <div class="panel-footer">
+        <p>cantidad</p>
+      </div>
+    </div>
+  </div>
+</section>
