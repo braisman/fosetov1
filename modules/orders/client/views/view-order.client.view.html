@@ -1,0 +1,31 @@
+<section>
+  <div class="page-header">
+    <h1 data-ng-bind="vm.order.user.firstName"></h1>
+    <div ng-repeat="topping in vm.order.toppings">
+      <h3 data-ng-bind="topping.ingredient.name"></h3>
+      <h3 data-ng-bind="topping.quantity"></h3>
+    </div>
+
+  </div>
+  <div class="pull-right"
+       data-ng-show="vm.order.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       data-ui-sref="orders.edit({ orderId: vm.order._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" data-ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span data-ng-bind="vm.order.created | date:'mediumDate'"></span>
+      by
+      <span data-ng-if="vm.order.user"
+            data-ng-bind="vm.order.user.displayName"></span>
+      <span data-ng-if="!vm.order.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" data-ng-bind="vm.order.content"></p>
+</section>
