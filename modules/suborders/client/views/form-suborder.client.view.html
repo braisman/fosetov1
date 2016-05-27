@@ -1,0 +1,48 @@
+<section>
+
+  <div class="page-header">
+    <h1>{{vm.suborder._id ? 'Editar Orden' : 'Nueva Orden'}}</h1>
+  </div>
+
+  <div class="col-md-3 " data-ng-repeat="ingredient in vm.ingredients"
+    ng-init="vm.validateIngr(ingredient._id, $index)" >
+    <div class="center-block bg-success" style="border-radius: 5px">
+      <h2 class="text-center" data-ng-bind="ingredient.name"></h2>
+      <p class="text-center" data-ng-bind="ingredient.description"></p>
+      <p class="text-center" data-ng-bind="ingredient.cost"></p>
+    </div>
+    <div class="center-block bg-success" style="border-radius: 5px">
+      <div class="row" align="center">
+        poco <input type="radio" ng-model="vm.radio[$index]" value="poco">
+      </div>
+      <div class="row" align="center">
+        mediano <input type="radio" ng-model="vm.radio[$index]" value="mediano">
+      </div>
+      <div class="row" align="center">
+        mucho <input type="radio" ng-model="vm.radio[$index]" value="mucho">
+      </div>
+    </div>
+    <div class="center-block bg-success" style="border-radius: 5px; margin-top: 10px; padding: 5px"
+      data-ng-if="!vm.added[$index]" align="center">
+      <button class="btn btn-default"
+      ng-click="vm.addTopping(ingredient, $index)">Agregar</button>
+    </div>
+    <div class="center-block bg-success" style="border-radius: 5px; margin-top: 10px; padding: 5px"
+      data-ng-if="vm.added[$index]" align="center">
+      <button class="btn btn-default"
+        ng-click="vm.removeTopping(ingredient, $index)">Eliminar</button>
+      <button class="btn btn-default"
+        ng-click="vm.updateTopping(ingredient, $index)">Actulizar</button>
+    </div>
+  </div>
+
+  <form name="vm.form.orderForm" class="col-md-12" ng-submit="vm.save(vm.form.orderForm.$valid)" novalidate>
+    <div class="list-group">
+      <h3>precio final</h3> <h4 ng-bind="vm.suborder.cost"></h4>
+    </div>
+    <div class="text-center row" style="margin-bottom: 30px">
+      <button type="submit" class="btn btn-default">{{vm.suborder._id ? 'Guardar' : 'Crear'}}</button>
+    </div>
+  </form>
+
+</section>

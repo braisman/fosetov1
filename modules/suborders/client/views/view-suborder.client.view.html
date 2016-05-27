@@ -1,0 +1,43 @@
+<section>
+  <!--Header -->
+  <div class="row page-header">
+    <h1 data-ng-bind="vm.suborder.user.username"></h1>
+  </div>
+  <!--Informacion principal-->
+  <div class="row bg-info col-md-12" style="padding: 5px; border-radius: 5px">
+    <h3 class="col-md-11 cold-md-offset-1">Ingredientes seleccionados</h3>
+    <div class="col-md-11 cold-md-offset-1" data-ng-repeat="topping in vm.suborder.toppings" >
+      <label data-ng-bind="topping.ingredient.name"></label>
+      <small data-ng-bind="topping.quantity"></small>
+    </div>
+    <div class="col-md-11 cold-md-offset-1">
+      <h3>Estado</h3>
+      <label data-ng-bind="vm.suborder.state"></label>
+    </div>
+    <div class="col-md-11 cold-md-offset-1">
+      <h3>Precio</h3>
+      <label data-ng-bind="vm.suborder.cost"></label>
+    </div>
+  </div>
+  <!--fecha de creación -->
+  <small class="col-md-4" style="margin-top: 10px" >
+    <em class="text-muted">
+      Fecha de creación
+      <span data-ng-bind="vm.suborder.created"></span>
+    </em>
+  </small>
+  <!-- botones de acciones -->
+  <div class="col-md-2 col-md-offset-6"
+       style="margin-top: 10px"
+       data-ng-show="vm.suborder.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       data-ui-sref="suborders.edit({ suborderId: vm.suborder._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" data-ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <!--no hace nada-->
+  <p class="lead" data-ng-bind="vm.suborder.content"></p>
+</section>
