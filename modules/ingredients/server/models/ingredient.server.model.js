@@ -14,6 +14,11 @@ var descriptionLength = function (description) {
  * Ingredient Schema
  */
 var IngredientSchema = new Schema({
+  dispNum: {
+    type: Number,
+    default: -1,
+    required: 'Decidir numero de ingrediente'
+  },
   name: {
     type: String,
     default: '',
