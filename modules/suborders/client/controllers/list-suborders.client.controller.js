@@ -5,9 +5,9 @@
     .module('suborders')
     .controller('SubordersListController', SubordersListController);
 
-  SubordersListController.$inject = ['SubordersService', 'Authentication'];
+  SubordersListController.$inject = ['$scope', '$state', 'SubordersService', 'Authentication'];
 
-  function SubordersListController(SubordersService, Authentication) {
+  function SubordersListController($scope, $state, SubordersService, Authentication) {
     var vm = this;
 
     vm.suborders = SubordersService.query();
