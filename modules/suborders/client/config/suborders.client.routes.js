@@ -60,6 +60,15 @@
         data:{
           pageTitle: 'Suborder {{ articleResolve.name }}'
         }
+      })
+      .state('suborders.feedback', {
+        url: '/:suborderId/feedback',
+        templateUrl: 'modules/suborders/client/views/feedback.client.view.html',
+        controller: 'FeedbackController',
+        controllerAs: 'vm',
+        resolve: {
+          suborderResolve: getSuborder
+        }
       });
   }
 

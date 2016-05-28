@@ -37,6 +37,10 @@
     <a class="btn btn-primary" data-ng-click="vm.remove()">
       <i class="glyphicon glyphicon-trash"></i>
     </a>
+    <a class="btn btn-primary"
+       data-ui-sref="suborders.feedback({ suborderId: vm.suborder._id })">
+      <i class="glyphicon glyphicon-shopping-cart"></i>
+    </a>
   </div>
   <!--no hace nada-->
   <p class="lead" data-ng-bind="vm.suborder.content"></p>

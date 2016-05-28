@@ -13,6 +13,7 @@
        <h4 class="list-group-item-heading" data-ng-bind="ingredient.name"></h4>
        <h5 class="list-group-item" data-ng-bind="ingredient.description"></h5>
        <h5 class="list-group-item" data-ng-bind="ingredient.cost"></h5>
+       <h5 class="list-group-item" data-ng-bind="ingredient.dispNum"></h5>
     </a>
   </div>
   <div class="alert alert-warning text-center" data-ng-if="vm.ingredients.$resolved && !vm.ingredients.length">

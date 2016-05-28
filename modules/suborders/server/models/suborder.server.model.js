@@ -11,6 +11,11 @@ var mongoose = require('mongoose'),
  */
 var SuborderSchema = new Schema({
   toppings: [ {
+    state: {
+      type: String,
+      default: 'espera',
+      enum: ['espera','dispensando', 'dispensado']
+    },
     ingredient: {
       type: Schema.ObjectId,
       ref: 'Ingredient'
