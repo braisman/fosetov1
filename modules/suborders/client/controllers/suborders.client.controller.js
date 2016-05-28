@@ -261,12 +261,12 @@
     }
 
     function generatePass(){
-      var intPart = Math.round( Math.random() * 10000 );
+      var intPart = Math.round(Math.random() * 10000);
 
       var strPart = '';
 
       for(var i = 0; i < 4; i++){
-        var index = Math.round( Math.random() * 10 ) % vm.letters.length;
+        var index = Math.round(Math.random() * 10) % vm.letters.length;
         strPart = strPart.concat(vm.letters[index]);
       }
 
