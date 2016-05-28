@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1 data-ng-bind="vm.comentario.name"></h1>
+  </div>
+  <div class="pull-right"
+       data-ng-show="vm.comentario.isCurrentUserOwner">
+    <a class="btn btn-primary" data-ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posteado el
+      <span data-ng-bind="vm.comentario.created | date:'mediumDate'"></span>
+      por
+      <span data-ng-if="vm.comentario.user"
+            data-ng-bind="vm.comentario.user.displayName"></span>
+      <span data-ng-if="!vm.comentario.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" data-ng-bind="vm.comentario.content"></p>
+</section>

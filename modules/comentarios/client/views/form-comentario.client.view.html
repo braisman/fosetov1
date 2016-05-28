@@ -1,0 +1,85 @@
+<section>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p>
+        <div class="alert alert-success" role="alert"><center> <h2>FOSETO</h2> </center></div>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <!--<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">-->
+    <div class="col-sm-8 col-sm-offset-2">
+      <img alt="MEAN.JS" class="img-responsive text-center img-circle" src="modules\comentarios\client\img\helados.jpg" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <p>
+        <center>
+          FOSETO (Food self-service tool – Herramienta de auto servicio de alimentos),
+          es toda una arquitectura que permitirá a nuestros clientes de una manera ágil,
+          sencilla y controlada, administrar desde sus dispositivos móviles los
+          ingredientes que desean que contengan sus pedidos.
+        </center>
+      </p>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <form name="vm.form.comentarioForm" class="form-horizontal" ng-submit="vm.save(vm.form.comentarioForm.$valid)" novalidate>
+        <fieldset>
+          <div class="col-sm-10 col-sm-offset-1">
+          <div id="vm.form.chart_div"></div>
+          <div class="form-group" show-errors>
+            <!--<label class="control-label" for="name">Name</label>-->
+            <center> <h4>Nos gustaria conocer tu opinion</h4> </center>
+            <input name="name" type="text" ng-model="vm.comentario.name" id="name" class="form-control" placeholder="Dejanos tu comentario" required>
+            <div ng-messages="vm.form.comentarioForm.name.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Debe ingresar un comentario.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="form-group">
+
+            <button type="submit" class="btn btn-primary">
+              <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+              Comentar
+            </button>
+                <a href="https://www.facebook.com/Foseto-2011688152390169/?ref=notif&notif_t=fbpage_fan_invite&notif_id=1462588595809299">Facebook</a>
+          </div>
+        </div>
+          <div ng-show="vm.error" class="text-danger">
+            <strong ng-bind="vm.error"></strong>
+          </div>
+
+          <div class="col-sm-10 col-sm-offset-1">
+            <div class="form-group">
+              <div class="list-group">
+                <a data-ng-repeat="comentarioHecho in vm.comentarioHechos"
+                   data-ui-sref="comentarios.view({ comentarioId: comentarioHecho._id })"
+                   class="list-group-item">
+                  <small class="list-group-item-text">
+                    Posteado el
+                    <span data-ng-bind="comentarioHecho.created | date:'mediumDate'"></span>
+                    por
+                    <span data-ng-if="comentarioHecho.user" data-ng-bind="comentarioHecho.user.displayName"></span>
+                    <span data-ng-if="!comentarioHecho.user">Deleted User</span>
+                  </small>
+                  <h4 class="list-group-item-heading" data-ng-bind="comentarioHecho.name"></h4>
+                </a>
+              </div>
+              <div class="alert alert-warning text-center" data-ng-if="vm.comentarioHecho.$resolved && !vm.comentarioHechos.length">
+                No hay ningun comentario aun!
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>

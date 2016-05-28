@@ -86,7 +86,7 @@
 
           }));
 
-        it('should fail to log in with nothing', function () {
+        it('should fail to log with nothing', function () {
           // Test expected POST request
           $httpBackend.expectPOST('/api/auth/signin').respond(400, {
             'message': 'Missing credentials'
