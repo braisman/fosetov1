@@ -18,6 +18,10 @@
       <h3>Precio</h3>
       <label data-ng-bind="vm.suborder.cost"></label>
     </div>
+    <div class="col-md-11 cold-md-offset-1">
+      <h3>Numero de orden</h3>
+      <label data-ng-bind="vm.suborder.orderpass"></label>
+    </div>
   </div>
   <!--fecha de creación -->
   <small class="col-md-4" style="margin-top: 10px" >
@@ -38,7 +42,7 @@
       <i class="glyphicon glyphicon-trash"></i>
     </a>
     <a class="btn btn-primary"
-       data-ui-sref="suborders.feedback({ suborderId: vm.suborder._id })">
+       data-ng-click="vm.toFeedback()">
       <i class="glyphicon glyphicon-shopping-cart"></i>
     </a>
   </div>

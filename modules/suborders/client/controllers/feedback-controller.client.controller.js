@@ -12,5 +12,6 @@
 
     vm.authentication = Authentication;
     vm.suborder = suborder;
+    
   }
 })();

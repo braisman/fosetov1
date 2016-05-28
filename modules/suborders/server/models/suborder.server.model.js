@@ -10,6 +10,10 @@ var mongoose = require('mongoose'),
  * Suborder Schema
  */
 var SuborderSchema = new Schema({
+  orderpass: {
+    type: String,
+    required: 'se necesita una clave de confirmacion',
+  },
   toppings: [ {
     state: {
       type: String,

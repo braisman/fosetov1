@@ -2,24 +2,30 @@
   <!--Parte de la orden-->
   <div class="jumbotron col-md-6 col-md-offset-3" style="margin-top: 10px">
     <h1 class="text-center">Orden</h1>
+
     <div class="panel panel-success">
       <div class="panel-body">
-        <h3>Ingredientes</h3>
+        <h3>Nombre de usuario</h3>
       </div>
       <div class="panel-footer">
-        <div class="list-group-item" data-ng-repeat="topping in vm.suborder.toppings">
-          <h4 data-ng-bind="topping.ingredient.name"></h4>
-          <h5>Cantidad <small data-ng-bind="topping.quantity"></small></h5>
-        </div>
+        <h4 data-ng-bind="vm.suborder.user.username"></h4>
+      </div>
+
+      <div class="panel-body">
+        <h3>Número de orden</h3>
+      </div>
+      <div class="panel-footer">
+        <h4 data-ng-bind="vm.suborder.orderpass"></h4>
       </div>
     </div>
   </div>
+  <!--ingredientes -->
   <!--barra de progreso-->
   <uib-progress class="col-md-6 col-md-offset-3">
     <uib-bar value="100" type="success">100</uib-bar>
   </uib-progress>
   <!--ingrediente actual-->
-  <div class="col-md-6 col-md-offset-3" style="background-color: #C0C0C0; padding: 5px; border-radius: 3px; margin-bottom: 10px">
+  <div class="col-md-6 col-md-offset-3" style="background-color: #eeeeee; padding: 5px; border-radius: 3px; margin-bottom: 10px">
     <!--titulo-->
     <h3 class="text-center">Ingrediente a dispensar</h3>
     <!--ingrediente -->

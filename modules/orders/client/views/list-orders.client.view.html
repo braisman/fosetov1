@@ -6,7 +6,7 @@
     <a data-ng-repeat="order in vm.orders"
        data-ui-sref="orders.view({ orderId: order._id })"
        class="list-group-item"
-       data-ng-if="vm.user._id === order.user._id">
+       data-ng-if="vm.user._id === order.user._id || vm.user.roles[0] === 'admin'">
       <small class="list-group-item-text" >
         Posted on
         <span data-ng-bind="order.created | date:'mediumDate'"></span>

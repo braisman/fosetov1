@@ -18,12 +18,15 @@
     vm.form = {};
     vm.radio = [];
     vm.added = [];
+    vm.letters = ['A','B','C','D','E','F'];
     vm.remove = remove;
     vm.save = save;
     vm.addTopping = addTopping;
     vm.updateTopping = updateTopping;
     vm.removeTopping = removeTopping;
     vm.validateIngr = validateIngr;
+    vm.generatePass = generatePass;
+    vm.toFeedback = toFeedback;
 
     if(!vm.suborder._id){
       vm.suborder.toppings = [];
@@ -59,6 +62,8 @@
             }
           }
         }
+
+        vm.suborder.orderpass = generatePass();
 
         vm.suborder.$save(successCallback, errorCallback);
       }
@@ -253,6 +258,30 @@
           vm.radio[index] = 'poco';
         }
       }
+    }
+
+    function generatePass(){
+      var intPart = Math.round( Math.random() * 10000 );
+
+      var strPart = '';
+
+      for(var i = 0; i < 4; i++){
+        var index = Math.round( Math.random() * 10 ) % vm.letters.length;
+        strPart = strPart.concat(vm.letters[index]);
+      }
+
+      strPart = strPart.concat(intPart.toString());
+
+      return strPart;
+    }
+
+    function toFeedback(){
+      vm.suborder.state = 'en proceso';
+      vm.suborder.$update();
+
+      $state.go('suborders.feedback', {
+        suborderId: vm.suborder._id
+      });
     }
 
   }
