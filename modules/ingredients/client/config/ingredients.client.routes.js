@@ -14,6 +14,12 @@
         url: '/ingredients',
         template: '<ui-view/>'
       })
+      .state('ingredients.estadistica', {
+        url: '/estadistica',
+        templateUrl: 'modules/ingredients/client/views/estadistica-ingredient-client-view.client.view.html',
+        controller: 'IngredientsListController',
+        controllerAs: 'vm'
+      })
       .state('ingredients.list', {
         url: '',
         templateUrl: 'modules/ingredients/client/views/list-ingredients.client.view.html',
